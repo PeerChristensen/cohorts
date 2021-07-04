@@ -1,0 +1,29 @@
+Package: cohorts
+Title: Cohort Analysis Made Easy
+Version: 1.0.0
+Authors@R: 
+    person(given = "Peer",
+           family = "Christensen",
+           role = c("aut", "cre"),
+           email = "hr.pchristensen@gmail.com")
+Description: This package contains functions that simnplify the process of preparing event and transaction for cohort analysis.
+License: MIT + file LICENSE
+URL: https://github.com/PeerChristensen/cohorts
+BugReports: https://github.com/PeerChristensen/cohorts/issues
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    data.table,
+    dplyr,
+    dtplyr,
+    magrittr,
+    tibble,
+    tidyr,
+    zoo
+Depends: 
+    R (>= 2.10)
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
