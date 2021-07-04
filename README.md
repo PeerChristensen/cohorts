@@ -1,9 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# cohorts
+# cohorts <a><img src='man/figures/cohorts_ppt.png' align="right" height="180" /></a>
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/PeerChristensen/cohorts/workflows/R-CMD-check/badge.svg)](https://github.com/PeerChristensen/cohorts/actions)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/cohorts)](https://CRAN.R-project.org/package=cohorts)
 <!-- badges: end -->
 
 Creating cohort tables from event data is complicated and requires
@@ -24,16 +28,7 @@ And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("PeerChristensen/cohorts")
-#> 
-#>      checking for file ‘/private/var/folders/j7/nyngp1s56r95glq3yw7g44bm0000gn/T/RtmpBrRpCx/remotes3dcc1f11f474/PeerChristensen-cohorts-b067cfc/DESCRIPTION’ ...  ✓  checking for file ‘/private/var/folders/j7/nyngp1s56r95glq3yw7g44bm0000gn/T/RtmpBrRpCx/remotes3dcc1f11f474/PeerChristensen-cohorts-b067cfc/DESCRIPTION’
-#>   ─  preparing ‘cohorts’:
-#>      checking DESCRIPTION meta-information ...  ✓  checking DESCRIPTION meta-information
-#>   ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#>   ─  building ‘cohorts_1.0.0.tar.gz’
-#>      
-#> 
+# devtools::install_github("PeerChristensen/cohorts")
 ```
 
 ## Creating a month level cohort table
