@@ -53,8 +53,7 @@ We can then turn this into a cohort table where each customer ID is tracked from
 
 ```{r wide-cohort-month}
 online_cohorts %>%
-  cohort_table_month(CustomerID, InvoiceDate)  %>%
-  head()
+  cohort_table_month(CustomerID, InvoiceDate)
 ```
 
 ## Creating a day level cohort table
@@ -63,8 +62,7 @@ If we need to track activity on a daily basis, we can instead use the `cohort_ta
 
 ```{r wide-cohort-day}
 gamelaunch %>%
-  cohort_table_day(userid, eventDate) %>%
-  head()
+  cohort_table_day(userid, eventDate)
 ```
 
 ## Converting to percentages
@@ -74,8 +72,7 @@ In order to see the percent of remaining customers in subsequent periods, we can
 ```{r}
 gamelaunch %>%
   cohort_table_day(userid, eventDate) %>%
-  cohort_table_pct(decimals = 1) %>%
-  head()
+  cohort_table_pct(decimals = 1)
 ```
 
 ## Left-shifted cohort tables
@@ -87,8 +84,7 @@ To left-shift a cohort table, we can use the `shift_left()` function.
 ```{r}
 gamelaunch %>%
   cohort_table_day(userid, eventDate) %>%
-  shift_left() %>%
-  head()
+  shift_left()
 ```
 
 We can also get the raw numbers as percentages.
@@ -96,8 +92,7 @@ We can also get the raw numbers as percentages.
 ```{r}
 gamelaunch %>%
   cohort_table_day(userid, eventDate) %>%
-  shift_left_pct() %>%
-  head()
+  shift_left_pct()
 ```
 
 ## Line plots
