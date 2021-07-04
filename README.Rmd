@@ -9,7 +9,10 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%",
+  message = F,
+  warning = F,
+  error = F
 )
 ```
 
@@ -33,33 +36,35 @@ And the development version from [GitHub](https://github.com/) with:
 
 ```{r install-2}
 # install.packages("devtools")
-#devtools::install_github("PeerChristensen/cohorts")
+devtools::install_github("PeerChristensen/cohorts")
 ```
 
-## Creating a wide month level cohort table
+## Creating a month level cohort table
 
 In this example, we use a dataset consisting of customer IDs and invoice dates.
 
 ```{r online-cohorts}
 library(cohorts)
 
-online_cohorts
+head(online_cohorts)
 ```
 
-We can then turn this into a wide cohort table where each customer ID is tracked from the first invoice month until the last month in the period.
+We can then turn this into a cohort table where each customer ID is tracked from the first invoice month until the last month in the period.
 
 ```{r wide-cohort-month}
 online_cohorts %>%
-  cohort_table_month(CustomerID, InvoiceDate) 
+  cohort_table_month(CustomerID, InvoiceDate)  %>%
+  head()
 ```
 
-## Creating a wide day level cohort table
+## Creating a day level cohort table
 
 If we need to track activity on a daily basis, we can instead use the `cohort_table_month()` function.
 
 ```{r wide-cohort-day}
 gamelaunch %>%
-  cohort_table_day(userid, eventDate)
+  cohort_table_day(userid, eventDate) %>%
+  head()
 ```
 
 ## Converting to percentages
@@ -69,17 +74,21 @@ In order to see the percent of remaining customers in subsequent periods, we can
 ```{r}
 gamelaunch %>%
   cohort_table_day(userid, eventDate) %>%
-  cohort_table_pct(decimals = 1)
+  cohort_table_pct(decimals = 1) %>%
+  head()
 ```
 
 ## Left-shifted cohort tables
+
+Another option is to shift cohort tables left. Here, we align cohorts such that date columns are replaced by time periods, i.e. t0, t1, t2 etc.
 
 To left-shift a cohort table, we can use the `shift_left()` function.
 
 ```{r}
 gamelaunch %>%
   cohort_table_day(userid, eventDate) %>%
-  shift_left()
+  shift_left() %>%
+  head()
 ```
 
 We can also get the raw numbers as percentages.
@@ -87,7 +96,8 @@ We can also get the raw numbers as percentages.
 ```{r}
 gamelaunch %>%
   cohort_table_day(userid, eventDate) %>%
-  shift_left_pct()
+  shift_left_pct() %>%
+  head()
 ```
 
 ## Line plots
@@ -107,7 +117,7 @@ gamelaunch_long <- gamelaunch %>%
 
 gamelaunch_long %>%
   filter(value > 0, cohort <= 7, time > 0) %>%
-  ggplot(aes(time, value, colour = factor(cohort), group=cohort)) +
+  ggplot(aes(time, value, colour = factor(cohort), group = cohort)) +
   geom_line(size = 1.5) +
   geom_point(size = 1.5) +
   theme_light()
@@ -119,15 +129,13 @@ Another way to plot a cohort table is by means of tiles. In this case we provide
 ```{r}
 gamelaunch_long %>%
   filter(time > 0, value > 0) %>%
-  ggplot(aes(x = time, y = reorder(cohort, desc(cohort)))) +
+  ggplot(aes(time, reorder(cohort, desc(cohort)))) +
   geom_raster(aes(fill = log(value))) +
   coord_equal(ratio = 1) +
   geom_text(aes(label = glue::glue("{round(value,0)}%")), size = 2, color = "snow") +
-  scale_fill_gradient(guide=F) +
+  scale_fill_gradient(guide = F) +
   theme_minimal() +
-  theme(axis.text  = element_text(size = 14),
-        axis.title = element_text(size = 16),
-        panel.grid = element_blank(),
+  theme(panel.grid   = element_blank(),
         panel.border = element_blank()) +
   labs(y= "cohort")
 ```

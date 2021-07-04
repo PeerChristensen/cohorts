@@ -33,6 +33,7 @@ shift_left_pct <- function(cohort_table, decimals = 1) {
   cohort_df <- round(cohort_df / cohort_df$t0 * 100, decimals)
 
   cohort_df %>%
-    dplyr::mutate(cohort = dplyr::row_number())
+    dplyr::mutate(cohort = dplyr::row_number()) %>%
+    tibble::as_tibble()
 }
 

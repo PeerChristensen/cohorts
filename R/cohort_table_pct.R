@@ -23,7 +23,8 @@ cohort_table_pct <- function(cohort_table, decimals = 1) {
   cohort_table_pct <- round({{cohort_table}} / diagonal *100, {{decimals}})
 
   cohort_table_pct %>%
-    dplyr::mutate(cohort = dplyr::row_number())
+    dplyr::mutate(cohort = dplyr::row_number()) %>%
+    tibble::as_tibble()
 }
 
 utils::globalVariables(c("cohort"))
