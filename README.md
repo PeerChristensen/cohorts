@@ -25,6 +25,15 @@ And the development version from [GitHub](https://github.com/) with:
 ``` r
 # install.packages("devtools")
 devtools::install_github("PeerChristensen/cohorts")
+#> 
+#>      checking for file ‘/private/var/folders/j7/nyngp1s56r95glq3yw7g44bm0000gn/T/RtmpBrRpCx/remotes3dcc1f11f474/PeerChristensen-cohorts-b067cfc/DESCRIPTION’ ...  ✓  checking for file ‘/private/var/folders/j7/nyngp1s56r95glq3yw7g44bm0000gn/T/RtmpBrRpCx/remotes3dcc1f11f474/PeerChristensen-cohorts-b067cfc/DESCRIPTION’
+#>   ─  preparing ‘cohorts’:
+#>      checking DESCRIPTION meta-information ...  ✓  checking DESCRIPTION meta-information
+#>   ─  checking for LF line-endings in source and make files and shell scripts
+#>   ─  checking for empty or unneeded directories
+#>   ─  building ‘cohorts_1.0.0.tar.gz’
+#>      
+#> 
 ```
 
 ## Creating a month level cohort table
@@ -215,8 +224,9 @@ gamelaunch_long %>%
   theme_light()
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" /> \#\#
-Cohort tables plotted
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+
+## Cohort tables plotted
 
 Another way to plot a cohort table is by means of tiles. In this case we
 provide the percentages and colour the tiles accordingly.
