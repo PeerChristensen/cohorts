@@ -17,6 +17,8 @@ There was 1 ERROR:
     
 The same error message was reported by other package developers here: https://github.com/r-hub/rhub/issues/471
 
+The error only occurred for Windows Server 2008 R2 SP1, R-devel, 32/64 bit
+
 There was 1 NOTE:
 
 *   checking CRAN incoming feasibility ... NOTE
