@@ -8,7 +8,14 @@
 
 ## R CMD check results
 
-There were no ERRORs or WARNINGs
+There were no WARNINGs
+
+There was 1 ERROR:
+
+*   Error : Bioconductor does not yet build and check packages for R version 4.2; see
+    https://bioconductor.org/install
+    
+The same error message was reported by other package developers here: https://github.com/r-hub/rhub/issues/471
 
 There was 1 NOTE:
 
