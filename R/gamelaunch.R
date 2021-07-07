@@ -1,4 +1,4 @@
-#' Event Data From the First Month After the Launch of a Mobile Game
+#' Event Data From the Launch of a Mobile Game
 #'
 #' A dataset containing 29324 observations with three columns: userid, eventDate and eventName.
 #'

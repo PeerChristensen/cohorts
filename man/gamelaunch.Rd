@@ -3,7 +3,7 @@
 \docType{data}
 \name{gamelaunch}
 \alias{gamelaunch}
-\title{Event Data From the First Month After the Launch of a Mobile Game}
+\title{Event Data From the Launch of a Mobile Game}
 \format{
 A data frame with 29324 rows and 3 variables:
 \describe{

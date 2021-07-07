@@ -6,7 +6,7 @@ Authors@R:
            family = "Christensen",
            role = c("aut", "cre"),
            email = "hr.pchristensen@gmail.com")
-Description: This package contains functions that simnplify the process of preparing event and transaction for cohort analysis.
+Description: Functions to simplify the process of preparing event and transaction for cohort analysis.
 License: MIT + file LICENSE
 URL: https://github.com/PeerChristensen/cohorts
 BugReports: https://github.com/PeerChristensen/cohorts/issues
