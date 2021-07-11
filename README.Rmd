@@ -30,15 +30,15 @@ The cohorts package lets users convert data frames to cohort tables in both long
 
 You can install the released version of cohorts from [CRAN](https://CRAN.R-project.org) with:
 
-```{r install-1}
-#install.packages("cohorts")
+```{r install-1, eval=F}
+install.packages("cohorts")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
 
-```{r install-2}
+```{r install-2,eval=F}
 # install.packages("devtools")
-# devtools::install_github("PeerChristensen/cohorts")
+devtools::install_github("PeerChristensen/cohorts")
 ```
 
 ## Creating a month level cohort table
