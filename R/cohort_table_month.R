@@ -21,7 +21,7 @@ cohort_table_month <- function(df, id_var, date) {
     dplyr::mutate(month = zoo::as.yearmon({{date}})) %>%
     dplyr::mutate(cohort = min(month)) %>%
     dplyr::group_by(cohort, month) %>%
-    dplyr::summarise(users = dplyr::n()) %>%
+    dplyr::summarise(users = dplyr::n_distinct({id_var}})) %>%
     tidyr::pivot_wider(names_from=month,values_from=users) %>%
     dplyr::ungroup() %>%
     dplyr::mutate(cohort = 1:dplyr::n_distinct(cohort)) %>%

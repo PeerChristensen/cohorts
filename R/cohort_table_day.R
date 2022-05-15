@@ -20,7 +20,7 @@ cohort_table_day <- function(df, id_var, date) {
     dplyr::group_by({{id_var}}) %>%
     dplyr::mutate(cohort = min({{date}})) %>%
     dplyr::group_by(cohort, {{date}}) %>%
-    dplyr::summarise(users = dplyr::n()) %>%
+    dplyr::summarise(users = dplyr::n_distinct({{id_var}})) %>%
     tidyr::pivot_wider(names_from={{date}},values_from=users) %>%
     dplyr::ungroup() %>%
     dplyr::mutate(cohort = 1:dplyr::n_distinct(cohort)) %>%
