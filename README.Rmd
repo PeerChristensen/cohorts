@@ -21,6 +21,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/PeerChristensen/cohorts/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PeerChristensen/cohorts/actions/workflows/R-CMD-check.yaml)
 [![CRAN status](https://www.r-pkg.org/badges/version/cohorts)](https://CRAN.R-project.org/package=cohorts)
+[![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/cohorts)](https://cranlogs.r-pkg.org/badges/grand-total/cohorts)
 <!-- badges: end -->
 
 Creating cohort tables from event data is complicated and requires several lines of code.

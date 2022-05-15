@@ -8,6 +8,7 @@
 [![R-CMD-check](https://github.com/PeerChristensen/cohorts/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PeerChristensen/cohorts/actions/workflows/R-CMD-check.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/cohorts)](https://CRAN.R-project.org/package=cohorts)
+[![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/cohorts)](https://cranlogs.r-pkg.org/badges/grand-total/cohorts)
 <!-- badges: end -->
 
 Creating cohort tables from event data is complicated and requires
@@ -55,15 +56,15 @@ tracked from the first invoice month until the last month in the period.
 ``` r
 online_cohorts %>%
   cohort_table_month(CustomerID, InvoiceDate)
-#> # A tibble: 13 x 14
+#> # A tibble: 13 × 14
 #>    cohort `Dec 2010` `Jan 2011` `Feb 2011` `Mar 2011` `Apr 2011` `May 2011`
 #>     <int>      <int>      <int>      <int>      <int>      <int>      <int>
-#>  1      1       1423        622        522        666        539        655
-#>  2      2         NA        514        127        163        132        201
-#>  3      3         NA         NA        451        122         97        135
-#>  4      4         NA         NA         NA        509        106        155
-#>  5      5         NA         NA         NA         NA        362         98
-#>  6      6         NA         NA         NA         NA         NA        336
+#>  1      1        949        363        318        368        342        377
+#>  2      2         NA        421        101        119        102        138
+#>  3      3         NA         NA        380         94         73        106
+#>  4      4         NA         NA         NA        440         84        112
+#>  5      5         NA         NA         NA         NA        299         68
+#>  6      6         NA         NA         NA         NA         NA        279
 #>  7      7         NA         NA         NA         NA         NA         NA
 #>  8      8         NA         NA         NA         NA         NA         NA
 #>  9      9         NA         NA         NA         NA         NA         NA
@@ -71,8 +72,9 @@ online_cohorts %>%
 #> 11     11         NA         NA         NA         NA         NA         NA
 #> 12     12         NA         NA         NA         NA         NA         NA
 #> 13     13         NA         NA         NA         NA         NA         NA
-#> # … with 7 more variables: Jun 2011 <int>, Jul 2011 <int>, Aug 2011 <int>,
-#> #   Sep 2011 <int>, Oct 2011 <int>, Nov 2011 <int>, Dec 2011 <int>
+#> # … with 7 more variables: `Jun 2011` <int>, `Jul 2011` <int>,
+#> #   `Aug 2011` <int>, `Sep 2011` <int>, `Oct 2011` <int>, `Nov 2011` <int>,
+#> #   `Dec 2011` <int>
 ```
 
 ## Creating a day level cohort table
@@ -83,27 +85,26 @@ If we need to track activity on a daily basis, we can instead use the
 ``` r
 gamelaunch %>%
   cohort_table_day(userid, eventDate)
-#> # A tibble: 31 x 32
+#> # A tibble: 31 × 32
 #>    cohort `2016-04-27` `2016-04-28` `2016-04-29` `2016-04-30` `2016-05-01`
 #>     <int>        <int>        <int>        <int>        <int>        <int>
-#>  1      1          192           66           55           46           46
-#>  2      2           NA          399          118           97           85
-#>  3      3           NA           NA          740          209          184
-#>  4      4           NA           NA           NA          773          225
-#>  5      5           NA           NA           NA           NA          807
+#>  1      1           96           65           55           46           46
+#>  2      2           NA          200          117           96           84
+#>  3      3           NA           NA          370          207          181
+#>  4      4           NA           NA           NA          387          223
+#>  5      5           NA           NA           NA           NA          405
 #>  6      6           NA           NA           NA           NA           NA
 #>  7      7           NA           NA           NA           NA           NA
 #>  8      8           NA           NA           NA           NA           NA
 #>  9      9           NA           NA           NA           NA           NA
 #> 10     10           NA           NA           NA           NA           NA
-#> # … with 21 more rows, and 26 more variables: 2016-05-02 <int>,
-#> #   2016-05-03 <int>, 2016-05-04 <int>, 2016-05-05 <int>, 2016-05-06 <int>,
-#> #   2016-05-07 <int>, 2016-05-08 <int>, 2016-05-09 <int>, 2016-05-10 <int>,
-#> #   2016-05-11 <int>, 2016-05-12 <int>, 2016-05-13 <int>, 2016-05-14 <int>,
-#> #   2016-05-15 <int>, 2016-05-16 <int>, 2016-05-17 <int>, 2016-05-18 <int>,
-#> #   2016-05-19 <int>, 2016-05-20 <int>, 2016-05-21 <int>, 2016-05-22 <int>,
-#> #   2016-05-23 <int>, 2016-05-24 <int>, 2016-05-25 <int>, 2016-05-26 <int>,
-#> #   2016-05-27 <int>
+#> # … with 21 more rows, and 26 more variables: `2016-05-02` <int>,
+#> #   `2016-05-03` <int>, `2016-05-04` <int>, `2016-05-05` <int>,
+#> #   `2016-05-06` <int>, `2016-05-07` <int>, `2016-05-08` <int>,
+#> #   `2016-05-09` <int>, `2016-05-10` <int>, `2016-05-11` <int>,
+#> #   `2016-05-12` <int>, `2016-05-13` <int>, `2016-05-14` <int>,
+#> #   `2016-05-15` <int>, `2016-05-16` <int>, `2016-05-17` <int>,
+#> #   `2016-05-18` <int>, `2016-05-19` <int>, `2016-05-20` <int>, …
 ```
 
 ## Converting to percentages
@@ -116,27 +117,26 @@ function.
 gamelaunch %>%
   cohort_table_day(userid, eventDate) %>%
   cohort_table_pct(decimals = 1)
-#> # A tibble: 31 x 32
+#> # A tibble: 31 × 32
 #>    cohort `2016-04-27` `2016-04-28` `2016-04-29` `2016-04-30` `2016-05-01`
 #>     <int>        <dbl>        <dbl>        <dbl>        <dbl>        <dbl>
-#>  1      1          100         34.4         28.6         24           24  
-#>  2      2           NA        100           29.6         24.3         21.3
-#>  3      3           NA         NA          100           28.2         24.9
-#>  4      4           NA         NA           NA          100           29.1
+#>  1      1          100         67.7         57.3         47.9         47.9
+#>  2      2           NA        100           58.5         48           42  
+#>  3      3           NA         NA          100           55.9         48.9
+#>  4      4           NA         NA           NA          100           57.6
 #>  5      5           NA         NA           NA           NA          100  
 #>  6      6           NA         NA           NA           NA           NA  
 #>  7      7           NA         NA           NA           NA           NA  
 #>  8      8           NA         NA           NA           NA           NA  
 #>  9      9           NA         NA           NA           NA           NA  
 #> 10     10           NA         NA           NA           NA           NA  
-#> # … with 21 more rows, and 26 more variables: 2016-05-02 <dbl>,
-#> #   2016-05-03 <dbl>, 2016-05-04 <dbl>, 2016-05-05 <dbl>, 2016-05-06 <dbl>,
-#> #   2016-05-07 <dbl>, 2016-05-08 <dbl>, 2016-05-09 <dbl>, 2016-05-10 <dbl>,
-#> #   2016-05-11 <dbl>, 2016-05-12 <dbl>, 2016-05-13 <dbl>, 2016-05-14 <dbl>,
-#> #   2016-05-15 <dbl>, 2016-05-16 <dbl>, 2016-05-17 <dbl>, 2016-05-18 <dbl>,
-#> #   2016-05-19 <dbl>, 2016-05-20 <dbl>, 2016-05-21 <dbl>, 2016-05-22 <dbl>,
-#> #   2016-05-23 <dbl>, 2016-05-24 <dbl>, 2016-05-25 <dbl>, 2016-05-26 <dbl>,
-#> #   2016-05-27 <dbl>
+#> # … with 21 more rows, and 26 more variables: `2016-05-02` <dbl>,
+#> #   `2016-05-03` <dbl>, `2016-05-04` <dbl>, `2016-05-05` <dbl>,
+#> #   `2016-05-06` <dbl>, `2016-05-07` <dbl>, `2016-05-08` <dbl>,
+#> #   `2016-05-09` <dbl>, `2016-05-10` <dbl>, `2016-05-11` <dbl>,
+#> #   `2016-05-12` <dbl>, `2016-05-13` <dbl>, `2016-05-14` <dbl>,
+#> #   `2016-05-15` <dbl>, `2016-05-16` <dbl>, `2016-05-17` <dbl>,
+#> #   `2016-05-18` <dbl>, `2016-05-19` <dbl>, `2016-05-20` <dbl>, …
 ```
 
 ## Left-shifted cohort tables
@@ -151,19 +151,19 @@ To left-shift a cohort table, we can use the `shift_left()` function.
 gamelaunch %>%
   cohort_table_day(userid, eventDate) %>%
   shift_left()
-#> # A tibble: 31 x 32
+#> # A tibble: 31 × 32
 #>    cohort    t0    t1    t2    t3    t4    t5    t6    t7    t8    t9   t10
 #>     <int> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
-#>  1      1   192    66    55    46    46    46    45    33    35    32    27
-#>  2      2   399   118    97    85    83    77    62    74    63    52    59
-#>  3      3   740   209   184   153   139   129   116    98    95    89    84
-#>  4      4   773   225   177   153   132   124   107   115   114    86    89
-#>  5      5   807   228   181   153   131   131   129   104    86    99    86
-#>  6      6   648   188   150   126   119   105    85    74    72    59    59
-#>  7      7   539   167   129   114   113   102    86    90    75    74    73
-#>  8      8   527   143   125    92    73    76    81    63    61    55    55
-#>  9      9   531   154   116   113   100    94    89    72    69    63    66
-#> 10     10   251    74    58    51    42    42    50    41    42    40    32
+#>  1      1    96    65    55    46    46    45    44    33    34    31    26
+#>  2      2   200   117    96    84    82    76    62    72    63    52    59
+#>  3      3   370   207   181   152   138   127   114    98    95    89    84
+#>  4      4   387   223   177   151   129   122   107   115   114    86    88
+#>  5      5   405   222   178   152   130   131   128   103    86    98    84
+#>  6      6   325   183   146   125   119   105    85    73    72    59    59
+#>  7      7   270   165   129   113   113   102    85    89    75    74    72
+#>  8      8   264   142   124    91    73    76    81    63    60    55    55
+#>  9      9   267   153   114   110    99    94    89    72    68    62    65
+#> 10     10   127    74    58    51    42    42    50    41    42    40    32
 #> # … with 21 more rows, and 20 more variables: t11 <dbl>, t12 <dbl>, t13 <dbl>,
 #> #   t14 <dbl>, t15 <dbl>, t16 <dbl>, t17 <dbl>, t18 <dbl>, t19 <dbl>,
 #> #   t20 <dbl>, t21 <dbl>, t22 <dbl>, t23 <dbl>, t24 <dbl>, t25 <dbl>,
@@ -176,19 +176,19 @@ We can also get the raw numbers as percentages.
 gamelaunch %>%
   cohort_table_day(userid, eventDate) %>%
   shift_left_pct()
-#> # A tibble: 31 x 32
+#> # A tibble: 31 × 32
 #>    cohort    t0    t1    t2    t3    t4    t5    t6    t7    t8    t9   t10
 #>     <int> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
-#>  1      1   100  34.4  28.6  24    24    24    23.4  17.2  18.2  16.7  14.1
-#>  2      2   100  29.6  24.3  21.3  20.8  19.3  15.5  18.5  15.8  13    14.8
-#>  3      3   100  28.2  24.9  20.7  18.8  17.4  15.7  13.2  12.8  12    11.4
-#>  4      4   100  29.1  22.9  19.8  17.1  16    13.8  14.9  14.7  11.1  11.5
-#>  5      5   100  28.3  22.4  19    16.2  16.2  16    12.9  10.7  12.3  10.7
-#>  6      6   100  29    23.1  19.4  18.4  16.2  13.1  11.4  11.1   9.1   9.1
-#>  7      7   100  31    23.9  21.2  21    18.9  16    16.7  13.9  13.7  13.5
-#>  8      8   100  27.1  23.7  17.5  13.9  14.4  15.4  12    11.6  10.4  10.4
-#>  9      9   100  29    21.8  21.3  18.8  17.7  16.8  13.6  13    11.9  12.4
-#> 10     10   100  29.5  23.1  20.3  16.7  16.7  19.9  16.3  16.7  15.9  12.7
+#>  1      1   100  67.7  57.3  47.9  47.9  46.9  45.8  34.4  35.4  32.3  27.1
+#>  2      2   100  58.5  48    42    41    38    31    36    31.5  26    29.5
+#>  3      3   100  55.9  48.9  41.1  37.3  34.3  30.8  26.5  25.7  24.1  22.7
+#>  4      4   100  57.6  45.7  39    33.3  31.5  27.6  29.7  29.5  22.2  22.7
+#>  5      5   100  54.8  44    37.5  32.1  32.3  31.6  25.4  21.2  24.2  20.7
+#>  6      6   100  56.3  44.9  38.5  36.6  32.3  26.2  22.5  22.2  18.2  18.2
+#>  7      7   100  61.1  47.8  41.9  41.9  37.8  31.5  33    27.8  27.4  26.7
+#>  8      8   100  53.8  47    34.5  27.7  28.8  30.7  23.9  22.7  20.8  20.8
+#>  9      9   100  57.3  42.7  41.2  37.1  35.2  33.3  27    25.5  23.2  24.3
+#> 10     10   100  58.3  45.7  40.2  33.1  33.1  39.4  32.3  33.1  31.5  25.2
 #> # … with 21 more rows, and 20 more variables: t11 <dbl>, t12 <dbl>, t13 <dbl>,
 #> #   t14 <dbl>, t15 <dbl>, t16 <dbl>, t17 <dbl>, t18 <dbl>, t19 <dbl>,
 #> #   t20 <dbl>, t21 <dbl>, t22 <dbl>, t23 <dbl>, t24 <dbl>, t25 <dbl>,
