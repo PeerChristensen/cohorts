@@ -80,7 +80,7 @@ online_cohorts %>%
 ## Creating a day level cohort table
 
 If we need to track activity on a daily basis, we can instead use the
-`cohort_table_month()` function.
+`cohort_table_day()` function.
 
 ``` r
 gamelaunch %>%
