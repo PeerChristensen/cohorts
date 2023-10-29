@@ -1,6 +1,6 @@
 Package: cohorts
 Title: Cohort Analysis Made Easy
-Version: 1.0.1
+Version: 1.2.0
 Authors@R: 
     person(given = "Peer",
            family = "Christensen",
