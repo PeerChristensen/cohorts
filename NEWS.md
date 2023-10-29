@@ -1,4 +1,3 @@
-# cohorts 1.3.0
 
 # cohorts 1.2.0
 
