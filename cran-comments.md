@@ -1,3 +1,8 @@
+## Resubmission
+
+This is a resubmission. 
+In this version I have tried to set OMP_THREAD_LIMIT=2 to avoid notes due to examples using more than two cores. processes
+
 ## Test platforms
 
 - MacOS Ventura 13.4, R version 4.3.1, x86_64, darwin20
