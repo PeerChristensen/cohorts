@@ -1,3 +1,5 @@
+# cohorts 1.3.0
+
 # cohorts 1.2.0
 
 * Added functions for exploring cohorts on week and year levels
