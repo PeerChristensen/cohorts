@@ -72,9 +72,8 @@ online_cohorts %>%
 #> 11     11         NA         NA         NA         NA         NA         NA
 #> 12     12         NA         NA         NA         NA         NA         NA
 #> 13     13         NA         NA         NA         NA         NA         NA
-#> # … with 7 more variables: `Jun 2011` <int>, `Jul 2011` <int>,
-#> #   `Aug 2011` <int>, `Sep 2011` <int>, `Oct 2011` <int>, `Nov 2011` <int>,
-#> #   `Dec 2011` <int>
+#> # ℹ 7 more variables: `Jun 2011` <int>, `Jul 2011` <int>, `Aug 2011` <int>,
+#> #   `Sep 2011` <int>, `Oct 2011` <int>, `Nov 2011` <int>, `Dec 2011` <int>
 ```
 
 ## Creating a day level cohort table
@@ -98,13 +97,13 @@ gamelaunch %>%
 #>  8      8           NA           NA           NA           NA           NA
 #>  9      9           NA           NA           NA           NA           NA
 #> 10     10           NA           NA           NA           NA           NA
-#> # … with 21 more rows, and 26 more variables: `2016-05-02` <int>,
-#> #   `2016-05-03` <int>, `2016-05-04` <int>, `2016-05-05` <int>,
-#> #   `2016-05-06` <int>, `2016-05-07` <int>, `2016-05-08` <int>,
-#> #   `2016-05-09` <int>, `2016-05-10` <int>, `2016-05-11` <int>,
-#> #   `2016-05-12` <int>, `2016-05-13` <int>, `2016-05-14` <int>,
-#> #   `2016-05-15` <int>, `2016-05-16` <int>, `2016-05-17` <int>,
-#> #   `2016-05-18` <int>, `2016-05-19` <int>, `2016-05-20` <int>, …
+#> # ℹ 21 more rows
+#> # ℹ 26 more variables: `2016-05-02` <int>, `2016-05-03` <int>,
+#> #   `2016-05-04` <int>, `2016-05-05` <int>, `2016-05-06` <int>,
+#> #   `2016-05-07` <int>, `2016-05-08` <int>, `2016-05-09` <int>,
+#> #   `2016-05-10` <int>, `2016-05-11` <int>, `2016-05-12` <int>,
+#> #   `2016-05-13` <int>, `2016-05-14` <int>, `2016-05-15` <int>,
+#> #   `2016-05-16` <int>, `2016-05-17` <int>, `2016-05-18` <int>, …
 ```
 
 ## Converting to percentages
@@ -130,13 +129,13 @@ gamelaunch %>%
 #>  8      8           NA         NA           NA           NA           NA  
 #>  9      9           NA         NA           NA           NA           NA  
 #> 10     10           NA         NA           NA           NA           NA  
-#> # … with 21 more rows, and 26 more variables: `2016-05-02` <dbl>,
-#> #   `2016-05-03` <dbl>, `2016-05-04` <dbl>, `2016-05-05` <dbl>,
-#> #   `2016-05-06` <dbl>, `2016-05-07` <dbl>, `2016-05-08` <dbl>,
-#> #   `2016-05-09` <dbl>, `2016-05-10` <dbl>, `2016-05-11` <dbl>,
-#> #   `2016-05-12` <dbl>, `2016-05-13` <dbl>, `2016-05-14` <dbl>,
-#> #   `2016-05-15` <dbl>, `2016-05-16` <dbl>, `2016-05-17` <dbl>,
-#> #   `2016-05-18` <dbl>, `2016-05-19` <dbl>, `2016-05-20` <dbl>, …
+#> # ℹ 21 more rows
+#> # ℹ 26 more variables: `2016-05-02` <dbl>, `2016-05-03` <dbl>,
+#> #   `2016-05-04` <dbl>, `2016-05-05` <dbl>, `2016-05-06` <dbl>,
+#> #   `2016-05-07` <dbl>, `2016-05-08` <dbl>, `2016-05-09` <dbl>,
+#> #   `2016-05-10` <dbl>, `2016-05-11` <dbl>, `2016-05-12` <dbl>,
+#> #   `2016-05-13` <dbl>, `2016-05-14` <dbl>, `2016-05-15` <dbl>,
+#> #   `2016-05-16` <dbl>, `2016-05-17` <dbl>, `2016-05-18` <dbl>, …
 ```
 
 ## Left-shifted cohort tables
@@ -164,10 +163,11 @@ gamelaunch %>%
 #>  8      8   264   142   124    91    73    76    81    63    60    55    55
 #>  9      9   267   153   114   110    99    94    89    72    68    62    65
 #> 10     10   127    74    58    51    42    42    50    41    42    40    32
-#> # … with 21 more rows, and 20 more variables: t11 <dbl>, t12 <dbl>, t13 <dbl>,
-#> #   t14 <dbl>, t15 <dbl>, t16 <dbl>, t17 <dbl>, t18 <dbl>, t19 <dbl>,
-#> #   t20 <dbl>, t21 <dbl>, t22 <dbl>, t23 <dbl>, t24 <dbl>, t25 <dbl>,
-#> #   t26 <dbl>, t27 <dbl>, t28 <dbl>, t29 <dbl>, t30 <dbl>
+#> # ℹ 21 more rows
+#> # ℹ 20 more variables: t11 <dbl>, t12 <dbl>, t13 <dbl>, t14 <dbl>, t15 <dbl>,
+#> #   t16 <dbl>, t17 <dbl>, t18 <dbl>, t19 <dbl>, t20 <dbl>, t21 <dbl>,
+#> #   t22 <dbl>, t23 <dbl>, t24 <dbl>, t25 <dbl>, t26 <dbl>, t27 <dbl>,
+#> #   t28 <dbl>, t29 <dbl>, t30 <dbl>
 ```
 
 We can also get the raw numbers as percentages.
@@ -189,10 +189,11 @@ gamelaunch %>%
 #>  8      8   100  53.8  47    34.5  27.7  28.8  30.7  23.9  22.7  20.8  20.8
 #>  9      9   100  57.3  42.7  41.2  37.1  35.2  33.3  27    25.5  23.2  24.3
 #> 10     10   100  58.3  45.7  40.2  33.1  33.1  39.4  32.3  33.1  31.5  25.2
-#> # … with 21 more rows, and 20 more variables: t11 <dbl>, t12 <dbl>, t13 <dbl>,
-#> #   t14 <dbl>, t15 <dbl>, t16 <dbl>, t17 <dbl>, t18 <dbl>, t19 <dbl>,
-#> #   t20 <dbl>, t21 <dbl>, t22 <dbl>, t23 <dbl>, t24 <dbl>, t25 <dbl>,
-#> #   t26 <dbl>, t27 <dbl>, t28 <dbl>, t29 <dbl>, t30 <dbl>
+#> # ℹ 21 more rows
+#> # ℹ 20 more variables: t11 <dbl>, t12 <dbl>, t13 <dbl>, t14 <dbl>, t15 <dbl>,
+#> #   t16 <dbl>, t17 <dbl>, t18 <dbl>, t19 <dbl>, t20 <dbl>, t21 <dbl>,
+#> #   t22 <dbl>, t23 <dbl>, t24 <dbl>, t25 <dbl>, t26 <dbl>, t27 <dbl>,
+#> #   t28 <dbl>, t29 <dbl>, t30 <dbl>
 ```
 
 ## Line plots
