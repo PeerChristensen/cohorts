@@ -14,26 +14,17 @@
 #'
 shift_left_pct <- function(cohort_table, decimals = 1) {
 
-  cohort_df <- cohort_table %>% data.frame()
+  wide <- shift_left_build(cohort_table)
 
-  n_cols <- ncol(cohort_df) #count number of columns in data set
-
-  for (i in 1:nrow(cohort_df)) { #for loop for shifting each row
-    df <- cohort_df[i,] #select row from data frame
-    df <- df[ , !is.na(df[])] #remove columns with zeros
-    partcols <- ncol(df) #count number of columns in row (w/o zeros)
-    #fill columns after values by zeros
-    if (partcols < n_cols) {
-      df[, c((partcols+1):n_cols)] <- 0 }
-    cohort_df[i,] <- df #replace initial row by new one
+  tcols <- setdiff(names(wide), "cohort")
+  t0 <- wide[["t0"]]
+  for (j in tcols) {
+    data.table::set(wide, j = j, value = round(wide[[j]] / t0 * 100, decimals))
   }
+  wide[, cohort := seq_len(.N)]
 
-  names(cohort_df) <- c("cohort",paste0("t",0:(ncol(cohort_df)-2)))
-
-  cohort_df <- round(cohort_df / cohort_df$t0 * 100, decimals)
-
-  cohort_df %>%
-    dplyr::mutate(cohort = dplyr::row_number()) %>%
-    tibble::as_tibble()
+  tibble::as_tibble(wide)
 }
+
+utils::globalVariables("cohort")
 

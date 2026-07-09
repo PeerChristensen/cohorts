@@ -79,7 +79,7 @@ online_cohorts %>%
 ## Creating a day level cohort table
 
 If we need to track activity on a daily basis, we can instead use the
-`cohort_table_day()` function.
+`cohort_table_month()` function.
 
 ``` r
 gamelaunch %>%
@@ -220,7 +220,7 @@ gamelaunch_long %>%
   theme_light()
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-5-1.png" alt="" width="100%" />
 
 ## Cohort tables plotted
 
@@ -241,4 +241,4 @@ gamelaunch_long %>%
   labs(y= "cohort")
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-6-1.png" alt="" width="100%" />

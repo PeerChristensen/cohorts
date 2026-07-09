@@ -14,18 +14,15 @@
 #'
 cohort_table_day <- function(df, id_var, date) {
 
-  dt <- dtplyr::lazy_dt(df)
+  id_col   <- deparse(substitute(id_var))
+  date_col <- deparse(substitute(date))
 
-  dt %>%
-    dplyr::rename(id = {{id_var}}) %>%
-    dplyr::group_by(id) %>%
-    dplyr::mutate(cohort = min({{date}})) %>%
-    dplyr::group_by(cohort, {{date}}) %>%
-    dplyr::summarise(users = dplyr::n_distinct(id)) %>%
-    tidyr::pivot_wider(names_from={{date}},values_from=users) %>%
-    dplyr::ungroup() %>%
-    dplyr::mutate(cohort = 1:dplyr::n_distinct(cohort)) %>%
-    tibble::as_tibble()
+  x <- data.table::data.table(
+    id     = df[[id_col]],
+    period = as.Date(df[[date_col]])
+  )
+
+  cohort_build(x, as.character)
 }
 
-utils::globalVariables(c("id","cohort","users"))
+utils::globalVariables(c("id","cohort","period","users"))

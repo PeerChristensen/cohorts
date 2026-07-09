@@ -14,19 +14,19 @@
 #'
 cohort_table_month <- function(df, id_var, date) {
 
-  dt <- dtplyr::lazy_dt(df)
+  id_col   <- deparse(substitute(id_var))
+  date_col <- deparse(substitute(date))
 
-  dt %>%
-    dplyr::rename(id = {{id_var}}) %>%
-    dplyr::group_by(id) %>%
-    dplyr::mutate(month = zoo::as.yearmon({{date}})) %>%
-    dplyr::mutate(cohort = min(month)) %>%
-    dplyr::group_by(cohort, month) %>%
-    dplyr::summarise(users = dplyr::n_distinct(id)) %>%
-    tidyr::pivot_wider(names_from=month,values_from=users) %>%
-    dplyr::ungroup() %>%
-    dplyr::mutate(cohort = 1:dplyr::n_distinct(cohort)) %>%
-    tibble::as_tibble()
+  x <- data.table::data.table(
+    id     = df[[id_col]],
+    period = as.Date(cut(as.Date(df[[date_col]]), "month"))
+  )
+
+  month_label <- function(d) {
+    paste(month.abb[data.table::month(d)], data.table::year(d))
+  }
+
+  cohort_build(x, month_label)
 }
 
-utils::globalVariables(c("id","cohort","users","month","%>%"))
+utils::globalVariables(c("id","cohort","period","users"))
